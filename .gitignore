@@ -1,0 +1,77 @@
+# ====================================
+# .gitignore for AnalyseBioInfo_System
+# ====================================
+
+# ============ PROJECT SPECIFIC ============
+
+# Rapport folder (PDF and extracted text)
+rapport/
+
+# PDF extraction script (temporary utility)
+extract_pdf.py
+
+# ============ BUILD OUTPUTS ============
+
+# Build directories
+target/
+build/
+out/
+bin/
+
+# ============ IDE FILES ============
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# VS Code
+.vscode/
+
+# ============ JAVA ============
+
+# Compiled class files
+*.class
+
+# Log files
+*.log
+
+# Package files
+*.jar
+!src/main/webapp/WEB-INF/lib/*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# ============ SYSTEM FILES ============
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# ============ TEMPORARY FILES ============
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*~
+
+# ============ LOGS ============
+
+# Tomcat logs (if copied locally)
+logs/
