@@ -1,0 +1,131 @@
+/* Palette de couleurs et polices */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --success-color: #27ae60;
+    --error-color: #c0392b;
+    --bg-color: #f0f3f5;
+    --card-bg: #ffffff;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-color);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    background-color: var(--card-bg);
+    width: 100%;
+    max-width: 800px;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+header {
+    text-align: center;
+    border-bottom: 2px solid var(--secondary-color);
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+}
+
+header h1 {
+    color: var(--primary-color);
+    margin: 0;
+    font-size: 28px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+header p {
+    color: #7f8c8d;
+    margin: 5px 0 0;
+}
+
+/* Formulaire */
+.input-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--primary-color);
+}
+
+input[type="text"], 
+input[type="file"], 
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #dcdde1;
+    border-radius: 6px;
+    font-size: 15px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus, 
+textarea:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+}
+
+textarea {
+    background-color: #f9f9f9;
+    font-family: 'Courier New', Courier, monospace;
+    resize: none;
+}
+
+/* Bouton */
+.btn-analyse {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+.btn-analyse:hover {
+    background-color: #2980b9;
+}
+
+.btn-analyse:active {
+    transform: scale(0.99);
+}
+
+/* Zone de résultat */
+.result-box {
+    margin-top: 30px;
+    padding: 20px;
+    border: 2px solid var(--secondary-color);
+    border-radius: 8px;
+    background-color: #ebf5fb;
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+#verdict-text {
+    font-size: 1.4em;
+    font-weight: 800;
+    margin-top: 10px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

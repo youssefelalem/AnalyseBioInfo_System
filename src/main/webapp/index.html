@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>BioInfo - Diagnostic HBB</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Analyseur Bio-Informatique</h1>
+            <p>Détection de la mutation HBB (Drépanocytose)</p>
+        </header>
+
+        <form id="analyseForm">
+            <div class="input-group">
+                <label>Nom du Patient / Identifiant</label>
+                <input type="text" name="nom" id="nomPatient" placeholder="Ex: jad mouslim" required>
+            </div>
+
+            <div class="input-group">
+                <label>Charger fichier FASTA (.fasta, .txt)</label>
+                <input type="file" id="fastaFile" accept=".fasta,.txt">
+            </div>
+
+            <div class="input-group">
+                <label>Séquence ADN extraite</label>
+                <textarea id="adnText" name="adn" rows="6" readonly placeholder="La séquence apparaîtra ici après chargement..."></textarea>
+            </div>
+
+            <button type="submit" class="btn-analyse">Lancer l'analyse</button>
+        </form>
+
+        <div id="result-container" class="result-box" style="display:none;">
+            <h3>Verdict Médical :</h3>
+            <p id="verdict-text"></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
