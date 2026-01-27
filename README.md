@@ -6,6 +6,7 @@
 ![Jakarta EE](https://img.shields.io/badge/Jakarta%20EE-10-007396?style=for-the-badge&logo=eclipse&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
 ![Apache Tomcat](https://img.shields.io/badge/Tomcat-10.1-F8DC75?style=for-the-badge&logo=apachetomcat&logoColor=black)
+![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
 **Système d'Analyse Bio-Informatique pour la Détection de la Mutation Glu6Val (HBB)**
 
@@ -340,7 +341,9 @@ Réponse: text/plain
 
 ## 📄 Licence
 
-Ce projet est réalisé dans un cadre académique et éducatif.
+Ce projet est sous licence **MIT**. Voir le fichier [LICENSE](./LICENSE) pour plus de détails.
+
+Ce projet est réalisé dans un cadre académique et éducatif à l'Université Hassan II de Casablanca.
 
 ---
 
