@@ -104,7 +104,7 @@ Le projet suit une **architecture en 3 couches (3-Tier)** basée sur le modèle 
 │               COUCHE DONNÉES (Entity + Boundary)             │
 │                                                              │
 │  ┌────────────┐  ┌────────────┐  ┌───────────────────────┐ │
-│  │  Patient   │  │  Sequence  │  │       DepotBDD        │ │
+│  │ Utilisateur│  │  Sequence  │  │       DepotBDD        │ │
 │  │  (Entity)  │  │  (Entity)  │  │   (Accès base MySQL)  │ │
 │  └────────────┘  └────────────┘  └───────────────────────┘ │
 └─────────────────────────────────────────────────────────────┘
@@ -123,7 +123,9 @@ AnalyseBioInfo_System/
 │   │   │   ├── OrchestrateurAnalyse.java
 │   │   │   └── MoteurCalcul.java      # Détection mutation
 │   │   ├── 📁 entity/            # Modèles de données
-│   │   │   ├── Patient.java
+│   │   │   ├── Utilisateur.java       # (Ex-Patient)
+│   │   │   ├── FichierAnalyse.java
+│   │   │   ├── ResultatAnalyse.java
 │   │   │   └── Sequence.java          # + Hash SHA-256
 │   │   └── 📁 util/
 │   │       └── DBConnection.java      # Configuration MySQL
@@ -134,9 +136,10 @@ AnalyseBioInfo_System/
 │       └── 📁 WEB-INF/
 │           ├── 📄 web.xml
 │           └── 📁 lib/
-│               └── mysql-connector-j-9.6.0.jar
+│               └── mysql-connector-j-8.0.33.jar
 ├── 📁 database/
 │   └── 📄 init_database.sql      # Script création BDD
+├── 📁 fichiers_de_test/          # Fichiers FASTA officiels (NCBI)
 ├── 📁 rapport/
 │   └── 📄 rapportbioinfvr3.pdf   # Rapport complet du projet
 ├── 📄 build.ps1                  # Script de build PowerShell
@@ -239,6 +242,16 @@ ATGGTGCACCTGACTCCTGAGGAGAAGTCTGCCGTTACTGCC
 ATGGTGCACCTGACTCCTGTGGAGAAGTCTGCCGTTACTGCC
 ```
 > **Codon 6 : GTG** → Valine → Drépanocytose détectée ⚠️
+
+### Fichiers de Test Officiels (NCBI) 🏛️
+
+Le projet inclut des fichiers de test validés scientifiquement (dossier `fichiers_de_test/`) :
+
+1. **`NCBI_Sain.fasta`** : Basé sur **NM_000518.5** (RefSeq officiel HBB).
+2. **`NCBI_Malade.fasta`** : Basé sur **rs334** (dbSNP), mutation pathogène réelle.
+3. **`NCBI_Porteur.fasta`** : Hybride représentant un hétérozygote.
+
+> **Note :** Il est recommandé d'utiliser des noms de patients différents à chaque test pour éviter le cache de la base de données.
 
 ---
 
