@@ -86,9 +86,9 @@ Le projet suit une **architecture en 3 couches (3-Tier)** basée sur le modèle 
                               │
                               ▼
 ┌─────────────────────────────────────────────────────────────┐
-│               COUCHE MÉTIER (Control)                        │
-│                                                              │
-│  ┌─────────────────────┐    ┌──────────────────────────┐   │
+│               COUCHE MÉTIER (Control)                       │
+│                                                             │
+│  ┌─────────────────────┐    ┌──────────────────────────┐    │
 │  │   AnalyseServlet    │───▶│  OrchestrateurAnalyse    │   │
 │  │   (Point d'entrée)  │    │  (Contrôle du flux)      │   │
 │  └─────────────────────┘    └──────────────────────────┘   │
