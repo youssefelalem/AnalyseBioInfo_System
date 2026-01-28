@@ -366,3 +366,5 @@ Ce projet est réalisé dans un cadre académique et éducatif à l'Université 
 *Détection Génétique Automatisée de la Mutation HBB*
 
 </div>
+
+
