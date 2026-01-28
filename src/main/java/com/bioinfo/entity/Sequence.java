@@ -4,7 +4,7 @@ import java.security.MessageDigest;
 import java.nio.charset.StandardCharsets;
 
 public class Sequence {
-	private String nucleotides;
+    private String nucleotides;
     private String empreinteHash;
 
     // Constructeur utilisé lors de l'extraction ou du chargement depuis la BDD
@@ -21,12 +21,13 @@ public class Sequence {
         try {
             MessageDigest digest = MessageDigest.getInstance("SHA-256");
             byte[] encodedHash = digest.digest(data.getBytes(StandardCharsets.UTF_8));
-            
+
             // Conversion du tableau de bytes en format hexadécimal
             StringBuilder hexString = new StringBuilder();
             for (byte b : encodedHash) {
                 String hex = Integer.toHexString(0xff & b);
-                if (hex.length() == 1) hexString.append('0');
+                if (hex.length() == 1)
+                    hexString.append('0');
                 hexString.append(hex);
             }
             return hexString.toString();
@@ -35,7 +36,32 @@ public class Sequence {
         }
     }
 
+    /**
+     * Calcule et vérifie l'intégrité de la séquence.
+     * Conforme au diagramme BCE.
+     * 
+     * @return String le hash d'intégrité actuel
+     */
+    public String calculerIntegrite() {
+        return genererHash(this.nucleotides);
+    }
+
+    /**
+     * Vérifie si la séquence est intègre (hash correspondant).
+     * 
+     * @return boolean true si intègre
+     */
+    public boolean verifierIntegrite() {
+        String hashActuel = genererHash(this.nucleotides);
+        return hashActuel.equals(this.empreinteHash);
+    }
+
     // Getters
-    public String getNucleotides() { return nucleotides; }
-    public String getEmpreinteHash() { return empreinteHash; }
+    public String getNucleotides() {
+        return nucleotides;
+    }
+
+    public String getEmpreinteHash() {
+        return empreinteHash;
+    }
 }

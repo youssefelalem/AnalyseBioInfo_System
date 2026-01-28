@@ -7,7 +7,7 @@
 CREATE DATABASE IF NOT EXISTS bioinfo_db;
 USE bioinfo_db;
 
--- 2. Table des patients
+-- 2. Table des patients (Utilisateur)
 CREATE TABLE IF NOT EXISTS patients (
     id_utilisateur INT AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(100) NOT NULL,
@@ -15,14 +15,15 @@ CREATE TABLE IF NOT EXISTS patients (
 );
 
 -- 3. Table des séquences de référence
+-- Hash modifié pour correspondre à Sequence.java (empreinteHash -> hash)
 CREATE TABLE IF NOT EXISTS sequences (
     id_sequence INT AUTO_INCREMENT PRIMARY KEY,
     nucleotides TEXT NOT NULL,
-    type VARCHAR(50) DEFAULT 'NORMALE',
-    empreinteHash VARCHAR(255)
+    type VARCHAR(50) DEFAULT 'REFERENCE', 
+    hash VARCHAR(255)
 );
 
--- 4. Table des résultats 
+-- 4. Table des résultats (ResultatAnalyse)
 CREATE TABLE IF NOT EXISTS resultats (
     id_analyse INT AUTO_INCREMENT PRIMARY KEY,
     id_utilisateur INT,
@@ -31,6 +32,11 @@ CREATE TABLE IF NOT EXISTS resultats (
     FOREIGN KEY (id_utilisateur) REFERENCES patients(id_utilisateur)
 );
 
--- 5. Insertion d'une séquence de référence
-INSERT INTO sequences (nucleotides, type, empreinteHash) 
-VALUES ('ATGGTGCACCTGACTCCTGAGGAGAAGTCTGCCGTTACTGCCCTGTGGGGCAAGGTGAACGTGGATGAAGTTGGTGGT', 'NORMALE', '5107212a9ee48bd3e2281ef481b7a7d4b715a86460fba2a099b8ddb2ca14cf9d');
+-- 5. Insertion initiale (Optionnel, l'application peut l'auto-réparer)
+-- La séquence correspond à celle hardcodée dans DepotBDD.java
+INSERT INTO sequences (nucleotides, type, hash) 
+VALUES (
+    'ATGGTGCATCTGACTCCTGAGGAGAAGTCTGCCGTTACTGCCCTGTGGGGCAAGGTGAACGTGGATGAAGTTGGTGGTGAGGCC', 
+    'REFERENCE', 
+    'HASH_A_CALCULER_PAR_APP'
+);
